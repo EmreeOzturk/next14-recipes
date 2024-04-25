@@ -11,9 +11,9 @@ const MealItem = ({
     creator: string
 }) => {
     return (
-        <article className='bg-gray-800/60 rounded-lg w-full h-[500px] flex flex-col items-center justify-start'>
+        <article className='bg-gray-800/60 rounded-lg w-full h-[600px] flex flex-col items-center justify-start'>
             <header className='w-full relative flex flex-col'>
-                <div className='relative h-64 w-full'>
+                <div className='relative h-80 w-full'>
                     <Image src={image} alt="food" fill className='object-cover rounded-lg' />
                 </div>
                 <div className='p-4 text-2xl font-bold font-mono'>
