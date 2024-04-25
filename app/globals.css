@@ -31,3 +31,28 @@ body {
     text-wrap: balance;
   }
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loading 3s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    color: red;
+  }
+  25% {
+    color: yellow;
+  }
+  50% {
+    color: green;
+  }
+  75% {
+    color: blue;
+  }
+  100% {
+    color: red;
+  }
+}
