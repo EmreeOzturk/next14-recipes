@@ -1,5 +1,6 @@
 import { getMeal } from "@/lib/meals"
 import Image from "next/image"
+import { notFound } from "next/navigation"
 
 const MealPage = async ({ params }
   : {
@@ -11,6 +12,9 @@ const MealPage = async ({ params }
 ) => {
   const { slug } = params
   const meal: any = await getMeal(slug)
+  if (!meal) {
+    notFound()
+  }
   meal.instructions = meal.instructions.replace(/\n/g, '<br />')
   return (
     <article className="p-12 mt-24">
