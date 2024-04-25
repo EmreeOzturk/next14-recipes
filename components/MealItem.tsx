@@ -36,7 +36,7 @@ const MealItem = ({
                 px-4 py-2 bg-gradient-to-l 
                 from-orange-400 to-orange-700 rounded-lg w-fit text-center text-white font-bold cursor-pointer hover:from-orange-700 hover:to-orange-400
                 '>
-                    <Link href={`/meal/${slug}`} >View Recipe</Link>
+                    <Link href={`/meals/${slug}`} >View Recipe</Link>
                 </div>
             </div>
         </article >
