@@ -10,7 +10,10 @@ const UploadImage = () => {
     const handleImagePicker = (event: ChangeEvent) => {
         const target = event.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
-        if (!file) return
+        if (!file) {
+            setImage(undefined)
+            return
+        }
         setImage(file)
     }
     return (
@@ -21,7 +24,10 @@ const UploadImage = () => {
                     onChange={handleImagePicker}
                     ref={inputRef}
                     className='p-4 bg-gray-800/60 rounded-lg hidden'
-                    accept="image/png, image/jpeg" type="file" id='image' name='image' />
+                    accept="image/png, image/jpeg" type="file" id='image' name='image'
+                    required
+                />
+
                 <button
                     type='button'
                     className=' text-center p-4 bg-gradient-to-l w-52 from-orange-400 to-orange-700 rounded-lg  text-white font-bold cursor-pointer hover:from-orange-700 hover:to-orange-400'
@@ -31,8 +37,10 @@ const UploadImage = () => {
                 </button>
 
             </div>
-            <div>
-                {image && <Image src={URL.createObjectURL(image)} alt="uploaded" width={300} height={300} />}
+            <div className="w-[300px] h-[300px] border-white rounded-md relative">
+                {image ? <Image src={URL.createObjectURL(image)} alt="uploaded" className="object-cover" fill /> : <div className='bg-gray-800/60 w-full h-full flex items-center justify-center rounded-md'>
+                    <p className='text-white text-center p-4'>No image uploaded</p>
+                </div>}
             </div>
         </div>
 
