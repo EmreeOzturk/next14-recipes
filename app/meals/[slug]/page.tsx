@@ -2,6 +2,16 @@ import { getMeal } from "@/lib/meals"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const meal:any = await getMeal(params.slug)
+  return {
+    title: meal.title,
+    description: meal.summary
+  }
+
+}
+
 const MealPage = async ({ params }
   : {
     params: {
