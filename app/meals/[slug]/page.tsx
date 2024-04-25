@@ -4,7 +4,10 @@ import { notFound } from "next/navigation"
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const meal:any = await getMeal(params.slug)
+  const meal: any = await getMeal(params.slug)
+  if (!meal) {
+    notFound()
+  }
   return {
     title: meal.title,
     description: meal.summary
