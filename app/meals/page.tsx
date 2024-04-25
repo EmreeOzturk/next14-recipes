@@ -2,6 +2,14 @@ import MealList from '@/components/MealList'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import MealsLoading from './loading-out'
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+    title: "Meals Page",
+    description: "Share your favorite recipes with the community",
+};
+
+
+
 const MealsPage = () => {
     return (
         <>
