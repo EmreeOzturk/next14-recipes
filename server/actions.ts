@@ -1,6 +1,7 @@
 "use server";
 
 import { createMeal } from "@/lib/meals";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function shareForm(prevState: any, formData: FormData) {
@@ -29,6 +30,7 @@ export async function shareForm(prevState: any, formData: FormData) {
   }
 
   await createMeal(meal);
+  revalidatePath("/meals");
   redirect("/meals");
   return {
     status: 200,
