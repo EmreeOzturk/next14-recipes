@@ -23,11 +23,11 @@ const MealsPage = () => {
                 </Link>
             </header>
 
-            <Suspense fallback={<div className='loading text-7xl mt-32'>MealsLoading</div>}>
-                <main>
+            <main>
+                <Suspense fallback={<div className='loading text-7xl mt-32'>MealsLoading</div>}>
                     <MealList />
-                </main>
-            </Suspense>
+                </Suspense>
+            </main>
 
         </>
     )
