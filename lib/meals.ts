@@ -23,7 +23,11 @@ export async function createMeal(meal: any) {
   const stream = fs.createWriteStream(`public/images/${newFileName}`);
   const bufferedStream = await meal.image.arrayBuffer();
 
-  stream.write(Buffer.from(bufferedStream));
+  stream.write(Buffer.from(bufferedStream), (error) => {
+    if (error) {
+      throw new Error("Saving image fail");
+    }
+  });
   // const stmt = db.prepare('INSERT INTO meals (title, summary, instructions, creator, creator_email, image, slug) VALUES (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)');
   // return stmt.run(meal);
 }
