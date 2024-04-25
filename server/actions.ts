@@ -1,6 +1,7 @@
 "use server";
 
 import { createMeal } from "@/lib/meals";
+import { redirect } from "next/navigation";
 
 export async function shareForm(formData: FormData) {
   console.log(formData);
@@ -13,7 +14,8 @@ export async function shareForm(formData: FormData) {
     image: formData.get("image"),
   };
 
-  createMeal(meal);
+  await createMeal(meal);
+  redirect("/meals");
   return {
     status: 200,
     message: "Recipe shared successfully",
