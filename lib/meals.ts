@@ -28,6 +28,8 @@ export async function createMeal(meal: any) {
       throw new Error("Saving image fail");
     }
   });
-  // const stmt = db.prepare('INSERT INTO meals (title, summary, instructions, creator, creator_email, image, slug) VALUES (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)');
-  // return stmt.run(meal);
+
+  meal.image = `/images/${newFileName}`;
+  const stmt = db.prepare('INSERT INTO meals (title, summary, instructions, creator, creator_email, image, slug) VALUES (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)');
+  return stmt.run(meal);
 }
