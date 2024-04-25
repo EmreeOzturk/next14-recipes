@@ -1,6 +1,7 @@
 
 import { shareForm } from "@/server/actions"
 import UploadImage from "./UploadImage"
+import ShareButton from "./ShareButton"
 const ShareForm = () => {
     return (
         <form action={shareForm}>
@@ -27,11 +28,7 @@ const ShareForm = () => {
                 <textarea className='p-4 bg-gray-800/60 rounded-lg' id='instructions' />
             </div>
             <UploadImage />
-            <div className='flex flex-col items-end gap-4 mt-12'>
-                <button className='p-4 bg-gradient-to-l w-52 from-orange-400 to-orange-700 rounded-lg text-center text-white font-bold cursor-pointer hover:from-orange-700 hover:to-orange-400'>
-                    Share
-                </button>
-            </div>
+            <ShareButton />
         </form>
     )
 }
