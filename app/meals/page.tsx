@@ -1,9 +1,7 @@
 import MealList from '@/components/MealList'
-import { getMeals } from '@/lib/meals'
 import Link from 'next/link'
-const MealsPage = async () => {
-    const meals = await getMeals()
-    console.log(meals)
+import { Suspense } from 'react'
+const MealsPage = () => {
     return (
         <>
             <header className="flex flex-col items-start text-gray-300 w-full mt-24 ">
@@ -24,9 +22,13 @@ const MealsPage = async () => {
                     Share your favorite recipe
                 </Link>
             </header>
-            <main>
-                <MealList meals={meals} />
-            </main>
+
+            <Suspense fallback={<div className='loading text-7xl mt-32'>MealsLoading</div>}>
+                <main>
+                    <MealList />
+                </main>
+            </Suspense>
+
         </>
     )
 }
