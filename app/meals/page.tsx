@@ -17,7 +17,7 @@ const MealsPage = () => {
                 </p>
                 <Link href="/meals/share"
                     className='text-2xl px-4 py-2 bg-red-400 rounded-lg bg-gradient-to-l from-orange-400 to-orange-700 font-bold'
-                > 
+                >
                     Share your favorite recipe
                 </Link>
             </header>
