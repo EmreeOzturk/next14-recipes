@@ -1,6 +1,8 @@
 import React from 'react'
 import MealItem from './MealItem'
-const MealList = ({ meals }: { meals: any }) => {
+import { getMeals } from '@/lib/meals'
+const MealList = async () => {
+    const meals = await getMeals()
     return (
         <ul className='flex flex-wrap gap-12 mt-20'>
             {
