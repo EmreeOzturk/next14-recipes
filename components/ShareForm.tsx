@@ -1,10 +1,12 @@
-
+"use client"
 import { shareForm } from "@/server/actions"
 import UploadImage from "./UploadImage"
 import ShareButton from "./ShareButton"
+import { useFormState } from "react-dom"
 const ShareForm = () => {
+    const [state, formAction] = useFormState(shareForm as any, { message: null })
     return (
-        <form action={shareForm}>
+        <form action={formAction}>
             <div className='flex gap-4 mt-12'>
                 <div className='flex flex-col w-full'>
                     <label className='text-2xl' htmlFor="name">Your Name</label>
@@ -28,6 +30,9 @@ const ShareForm = () => {
                 <textarea className='p-4 bg-gray-800/60 rounded-lg' id='instructions' />
             </div>
             <UploadImage />
+            <p className="text-4xl text-center font-bold font-sans">
+                {state.message}
+            </p>
             <ShareButton />
         </form>
     )
