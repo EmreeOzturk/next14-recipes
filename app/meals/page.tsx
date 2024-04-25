@@ -1,6 +1,7 @@
 import MealList from '@/components/MealList'
 import Link from 'next/link'
 import { Suspense } from 'react'
+import MealsLoading from './loading-out'
 const MealsPage = () => {
     return (
         <>
@@ -24,7 +25,7 @@ const MealsPage = () => {
             </header>
 
             <main>
-                <Suspense fallback={<div className='loading text-7xl mt-32'>MealsLoading</div>}>
+                <Suspense fallback={<MealsLoading />}>
                     <MealList />
                 </Suspense>
             </main>

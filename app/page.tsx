@@ -1,4 +1,5 @@
 import ImageSlide from "@/components/ImageSlide";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,9 +17,9 @@ export default function Home() {
             <p className="text-3xl font-thin bg-gradient-to-l from-orange-200 to-orange-400 inline-block text-transparent bg-clip-text">
               Join The Community
             </p>
-            <button className="text-2xl px-4 py-2 bg-red-400 rounded-lg bg-gradient-to-l from-orange-400 to-orange-700 font-bold">
+            <Link href="meals" className="text-2xl px-4 py-2 bg-red-400 rounded-lg bg-gradient-to-l from-orange-400 to-orange-700 font-bold">
               Explore Meals
-            </button>
+            </Link>
           </div>
         </div>
       </header>
